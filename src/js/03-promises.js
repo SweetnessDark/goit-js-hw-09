@@ -32,11 +32,13 @@ function onCreatePromise(event) {
     data[key] = Number(value);
   }
 
-  let { amount, delay, step } = data;
+  let { delay, step, amount } = data;
 
   for (let i = 1; i <= amount; i += 1) {
-    delay += step;
     createPromise(i, delay);
+    
+    delay = delay + step;
+    
     form.reset();
   }
 }
