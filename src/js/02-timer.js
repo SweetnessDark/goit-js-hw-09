@@ -54,6 +54,8 @@ function addLeadingZero(value) {
   return String(value).padStart(2, 0);
 }
 
+let timerId = null;
+
 function startTimer() {
   const selectedDate = fp.selectedDates[0];
   
