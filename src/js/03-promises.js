@@ -34,7 +34,7 @@ function onCreatePromise(event) {
 
   let { amount, delay, step } = data;
 
-  for (let i = 0; i < amount; i++) {
+  for (let i = 1; i <= amount; i += 1) {
     delay += step;
     createPromise(i, delay);
     form.reset();

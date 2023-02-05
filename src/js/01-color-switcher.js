@@ -6,6 +6,8 @@ const body = document.querySelector('body');
 const btnStart = document.querySelector('button[data-start]');
 const btnStop = document.querySelector('button[data-stop]');
 
+let timerId = null;
+
 btnStart.addEventListener("click", () => {
     btnStart.setAttribute('disabled', true);
     timerId = setInterval(() => {

@@ -10,24 +10,27 @@ const dataHours = document.querySelector('[data-hours]');
 const dataMinutes = document.querySelector('[data-minutes]');
 const dataSeconds = document.querySelector('[data-seconds]');
 
-const fp = flatpickr(dateTime, options = {
-    enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
-      console.log(selectedDates[0]);
-      console.log(options.defaultDate)
-      if(selectedDates[0] < options.defaultDate) {
-        Notify.failure('Please choose a date in the future', {
-            timeout: 1000,
-            width: '400px',
-          });
-      } else {
-        btnTime.removeAttribute('disabled');
-      }
-    },
-});
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    console.log(selectedDates[0]);
+    console.log(options.defaultDate)
+    if(selectedDates[0] < options.defaultDate) {
+      btnTime.disabled = true;
+      Notify.failure('Please choose a date in the future', {
+        timeout: 1000,
+        width: '400px',
+      });
+    } else {
+      btnTime.disabled = false;
+    }
+  },
+};
+
+const fp = flatpickr(dateTime, options);
 
 function convertMs(ms) {
   const second = 1000;
@@ -57,7 +60,7 @@ function startTimer() {
   timerId = setInterval(() => {
     const startTime = new Date();
     const countdown = selectedDate - startTime;
-    btnTime.getAttribute('disabled', true);
+    btnTime.disabled = false;
     
     if (countdown < 0) {
       clearInterval(timerId);
