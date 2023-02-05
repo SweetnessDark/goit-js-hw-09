@@ -7,6 +7,7 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 25px;
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
@@ -15,4 +16,66 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+
+#datetime-picker {
+  width: 250px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 25px;
+  text-align: center;
+  background-color:aqua;
+  border: none;
+}
+
+button[data-start],
+button[data-stop] {
+  width: 100px;
+  height: 50px;
+  font-size: 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[data-start]:disabled {
+  cursor: not-allowed;
+}
+
+.timer {
+  display: flex;
+  margin-top: 15px;
+}
+
+.field {
+  text-align: center;
+  margin-left: 15px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  display: flex;
+  flex-direction: column;
+  
+  width: 200px;
+  height: 30px;
+  border-color:crimson;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form button {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(231, 52, 52);
+  cursor: pointer;
 }
